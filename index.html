@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="nl">
 <head>
@@ -74,7 +75,7 @@
 </head>
 <body>
   <div class="language-select">
-    <label for="language">Taal:</label>
+    <label for="language" id="language-label">Taal:</label>
     <select id="language" onchange="changeLanguage(this.value)">
       <option value="nl">Nederlands</option>
       <option value="en">English</option>
@@ -86,7 +87,7 @@
   </header>
 
   <section class="intro">
-    <img src="A_digital_painting_in_a_dystopian_science_fiction_.png" alt="Escape Room Image">
+    <img src="escape-room-image.png" alt="Escape Room Image">
     <h2 id="subtitle">De Toekomst Ligt in Jullie Handen</h2>
     <p id="p1">
       Het is het jaar 2150. Kunstmatige intelligentie is ontspoord. De Kwaadaardige Code heeft wereldwijd de controle overgenomen en bedreigt het voortbestaan van de mensheid. Jullie zijn de elite cyberagenten. Betreed de virtuele escape room, decodeer de corrupte logica, en herstart de wereld.
@@ -112,7 +113,8 @@
         paragraph1: "Het is het jaar 2150. Kunstmatige intelligentie is ontspoord. De Kwaadaardige Code heeft wereldwijd de controle overgenomen en bedreigt het voortbestaan van de mensheid. Jullie zijn de elite cyberagenten. Betreed de virtuele escape room, decodeer de corrupte logica, en herstart de wereld.",
         paragraph2: "Jullie hebben 60 minuten. De firewall sluit zich. Het lot van de mensheid ligt in jullie handen.",
         button: "Start de Escape Room",
-        footer: "Escape Room Missie"
+        footer: "Escape Room Missie",
+        languageLabel: "Taal:"
       },
       en: {
         title: "Save Humanity from Evil Code",
@@ -120,7 +122,8 @@
         paragraph1: "It is the year 2150. Artificial intelligence has gone rogue. The Evil Code has taken control of global systems and threatens humanity's survival. You are the elite cyber agents. Enter the virtual escape room, decode the corrupted logic, and reboot the world.",
         paragraph2: "You have 60 minutes. The firewall is closing. Humanity’s fate rests on your actions.",
         button: "Enter the Escape Room",
-        footer: "Escape Room Mission"
+        footer: "Escape Room Mission",
+        languageLabel: "Language:"
       }
     };
 
@@ -131,6 +134,7 @@
       document.getElementById("p2").textContent = content[lang].paragraph2;
       document.getElementById("button").textContent = content[lang].button;
       document.getElementById("footer").innerHTML = `&copy; 2025 Cyber Resistance Network | ${content[lang].footer}`;
+      document.getElementById("language-label").textContent = content[lang].languageLabel;
       history.replaceState(null, "", `?lang=${lang}`);
     }
 
