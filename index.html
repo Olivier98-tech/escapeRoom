@@ -2,8 +2,8 @@
 <!DOCTYPE html>
 <html lang="nl">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Escape Room: Red de Mensheid van de Kwaadaardige Code</title>
   <style>
     body {
@@ -98,14 +98,29 @@
   </section>
 
   <div class="cta">
-    <a href="#" id="button">Start de Escape Room</a>
+    <a href="#" id="button" onclick="playAudioAndRedirect()">Start de Escape Room</a>
   </div>
 
   <footer id="footer">
     &copy; 2025 Cyber Resistance Network | Escape Room Missie
   </footer>
 
+  <audio id="introAudio1" src="intro.mp3"></audio>
+  <audio id="introAudio2" src="intro-sound.mp3"></audio>
+
   <script>
+    function playAudioAndRedirect() {
+      const audio1 = document.getElementById("introAudio1");
+      const audio2 = document.getElementById("introAudio2");
+      audio1.play();
+      audio1.onended = () => {
+        audio2.play();
+        setTimeout(() => {
+          window.location.href = "code-puzzel.html";
+        }, audio2.duration * 1000 || 3000);
+      };
+    }
+
     const content = {
       nl: {
         title: "Red de Mensheid van de Kwaadaardige Code",
